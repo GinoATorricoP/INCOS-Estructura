@@ -34,8 +34,16 @@ void insertar_dato(){
     cin >> nombre;
     cout << "Ingrese el apellido: ";
     cin >> apellido;
-    cout << "Ingrese el sexo (M o F): ";
-    cin >> sexo;
+    
+    while (true) {
+        cout << "Ingrese el sexo (M o F): ";
+        cin >> sexo;
+        if (sexo == 'M' || sexo == 'F') {
+            break;
+        }
+        cout << "Por favor, elegir entre M o F." << endl;
+    }
+    
     cout << "Ingrese la nota: ";
     cin >> nota;
     
