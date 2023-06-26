@@ -83,7 +83,7 @@ int main(){
     do {
         cout << "\nMENU\n";
         cout << "1. Insertar dato\n";
-        cout << "2. Mostrar lista\n";
+        cout << "2. Mostrar dato\n";
         cout << "3. Destruir lista\n";
         cout << "4. Salir\n";
         cout << "Seleccione una opcion: ";

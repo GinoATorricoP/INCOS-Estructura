@@ -77,37 +77,48 @@ void destruir_lista(){
     }
 }
 
-int main(){
+int main() {
     int opcion;
-    
+    bool repetir = true;
+
     do {
-        cout << "\nMENU\n";
-        cout << "1. Insertar dato\n";
-        cout << "2. Mostrar lista\n";
-        cout << "3. Destruir lista\n";
-        cout << "4. Salir\n";
-        cout << "Seleccione una opcion: ";
+        system("cls");
+
+        // Texto del menú que se verá cada vez
+        cout << "\n\n\t\t\tMenu de Opciones" << endl;
+        cout << "\t\t\t----------------" << endl;
+        cout << "\n\t1. Insertar dato" << endl;
+        cout << "\t2. Mostrar datos" << endl;
+        cout << "\t3. Destruir lista" << endl;
+        cout << "\t4. Salir" << endl;
+
+        cout << "\n\tIngrese una opcion: ";
         cin >> opcion;
-        
+
         switch (opcion) {
             case 1:
                 insertar_dato();
+                system("pause");  // Pausa después de mostrar la opción "Insertar dato"
                 break;
             case 2:
                 mostrar_lista();
+                system("pause");  // Pausa después de mostrar la opción "Mostrar datos"
                 break;
             case 3:
                 destruir_lista();
+                system("pause");  // Pausa después de mostrar la opción "Destruir lista"
                 break;
             case 4:
                 cout << "Saliendo del programa..." << endl;
+                repetir = false;
                 break;
             default:
                 cout << "Opcion invalida. Intente nuevamente." << endl;
+                system("pause");  // Pausa después de mostrar una opción inválida
                 break;
         }
-    } while (opcion != 4);
-    
+    } while (repetir);
+
     return 0;
 }
 
