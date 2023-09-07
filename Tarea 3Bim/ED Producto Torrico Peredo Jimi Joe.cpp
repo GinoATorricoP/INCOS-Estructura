@@ -1,14 +1,8 @@
-/*
-	Nombre : Jimi Joe Torrico Peredo
-	Curso :  Sistemas 2
-	Carrera : Sistemas Informaticos
-	Materia : Estructura de Datos
-	
-*/
 #include<iostream>
 #include<string>
 #include<fstream>
 #include<stdlib.h>
+
 
 using namespace std;
 
@@ -333,6 +327,61 @@ void mostrarLista() {
     }
 }
 
+void abrir_archivo()
+{
+	char cadena[99];
+	int entero;
+	ifstream archivo_de_entrada;
+	archivo_de_entrada.open("lista_nodo_texto.txt", ios::in);
+	if(archivo_de_entrada.fail())
+	{
+		cout<<"archivo no encontrado...";
+		return;
+	}
+	
+	while(!archivo_de_entrada.eof())
+	{
+		archivo_de_entrada>>cadena;
+		cout<<cadena<<endl;
+		
+		//entero = atoi(cadena);
+		//insertar_cabeza_x(entero);
+		//insertar_en_orden_x(entero);
+	}
+	
+	archivo_de_entrada.close();
+	
+}
+
+/*
+void abrir_archivo_x()
+{
+	char cadena[99];
+	string str;
+	int entero;
+	ifstream archivo_de_entrada;
+	archivo_de_entrada.open("libro1.csv", ios::in);
+	if(archivo_de_entrada.fail())
+	{
+		cout<<"archivo CSV no encontrado...";
+		return;
+	}
+	
+	while(!archivo_de_entrada.eof())
+	{
+		getline(archivo_de_entrada,str);
+		strcpy(cadena, str.c_str());
+		cout<<cadena<<endl;
+		
+		//entero = atoi(cadena);
+		//insertar_cabeza_x(entero);
+		//insertar_en_orden_x(entero);
+	}
+	
+	archivo_de_entrada.close();
+	
+}
+*/
 int main() {
     int opcion;
     do {
@@ -348,7 +397,9 @@ int main() {
         cout << "9. Ordenar la lista de productos por codigo\n";
         cout << "10. Guardar los datos en un archivo\n";
         cout << "11. Mostrar la lista de productos\n";
-        cout << "12. Salir\n";
+        cout << "12. abrir txt\n";
+        //cout << "13. abrir csv\n";
+        cout << "13. Salir\n";
         cout << "Ingrese una opcion: ";
         cin >> opcion;
 
@@ -387,11 +438,15 @@ int main() {
                 mostrarLista();
                 break;
             case 12:
+            	abrir_archivo();
                 break;
+            /*case 13:
+            	abrir_archivo_x();
+                break;*/
             default:
                 cout << "Opcion no válida. Por favor, seleccione una opcion válida." << endl;
         }
-    } while (opcion != 12);
+    } while (opcion != 13);
 
     return 0;
 }

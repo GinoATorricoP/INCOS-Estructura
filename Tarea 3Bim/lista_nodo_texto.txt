@@ -1,0 +1,5 @@
+codigo; 1
+nombreArt; sal
+precioUnit; 15
+cantidad; 10
+nombreProv; Jimi
