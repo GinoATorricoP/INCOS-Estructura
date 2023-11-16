@@ -28,6 +28,9 @@ void pop(JTnodoP*& pila) {
     pila = pila->sig;
     delete aux;
   }
+  else{
+  	cout << "La pila esta vacia";
+  }
 }
 
 void mostrar(JTnodoP* pila) {
@@ -39,6 +42,7 @@ void mostrar(JTnodoP* pila) {
 }
 
 int main() {
+	
   JTnodoP* pila = crear_pila();
 
   push(pila, 'a');
@@ -49,8 +53,11 @@ int main() {
 
   pop(pila);
   pop(pila);
-
+  pop(pila);
+  pop(pila);
+  
   mostrar(pila);
+  
 
   return 0;
 }
