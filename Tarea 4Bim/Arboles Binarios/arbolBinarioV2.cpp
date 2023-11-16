@@ -10,11 +10,12 @@ struct Nodo{
 	Nodo *izq;
 };
 
-//creacion de nodos
+//creacion de nodos&prototipos
 
 Nodo *crearNodo(int);
 Nodo *arbol = NULL;
 void mostrarArbol(Nodo *, int);
+bool busquedaNodo(Nodo *, int);
 
 
 //funcion insertar nodos en el arbol
@@ -49,6 +50,24 @@ void mostrarArbol(Nodo *arbol, int cont){
 		
 	}
 }
+
+//busqueda de nodo en arbol
+
+bool busquedaNodo(Nodo *arbol, int n){
+	if(arbol == NULL){
+		return false;
+	}
+	else if(arbol->dato == n){
+		return true;
+	}
+	else if(n <arbol->dato){
+		return busquedaNodo(arbol->izq, n);
+	}
+	else if(n >arbol->dato){
+		return busquedaNodo(arbol->der, n);
+	}
+}
+
 //menu
 void menu(){
 	int dato, opcion, contador = 0;
@@ -56,8 +75,9 @@ void menu(){
 		cout<<"\t.:Menu:."<<endl;
 		cout<<"1. Insertar un nuevo nodo"<<endl;
 		cout<<"2. Mostrar arbol"<<endl;
-		cout<<"3. Salir"<<endl;
-		cout<<"Digite la opcion que desea";
+		cout<<"3. Buscar nodo"<<endl;
+		cout<<"4. Salir"<<endl;
+		cout<<"Digite la opcion que desea : ";
 		cin>>opcion;
 		
 		switch(opcion){
@@ -72,9 +92,20 @@ void menu(){
 					cout<<"\n";
 					system("pause");
 					break;
+			case 3 : cout<<"\nDigite un numero: ";
+					cin>>dato;
+					if(busquedaNodo(arbol, dato) == true){
+						cout<<"\n Elemento si existe\n";
+					}
+					else{
+						cout<<"\n Elemento no encontrado\n";
+					}
+					cout<<"\n";
+					system("pause");
+					break;
 		}
 		system("cls");
-	}while(opcion !=3);
+	}while(opcion !=4);
 }
 
 int main(){
