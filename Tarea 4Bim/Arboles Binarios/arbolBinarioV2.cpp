@@ -42,7 +42,7 @@ void mostrarArbol(Nodo *arbol, int cont){
 	else{
 		mostrarArbol(arbol->der, cont+1);
 			for(int i=0;i<cont;i++){
-				cout<<" ";
+				cout<<"   ";
 			}
 			cout<<arbol->dato<<endl;
 			mostrarArbol(arbol->izq, cont+1);
